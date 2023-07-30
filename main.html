@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Top Songs</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Spotify Top Songs</h1>
+    <!-- Spotify Logo (Replace 'path_to_spotify_logo' with the actual image URL) -->
+    <img class="spotify-logo" src="" alt="Spotify Logo">
+  </header>
+
+  <!-- Profile Section -->
+  <section id="profile-section">
+    <!-- User Profile Picture -->
+    <img id="profile-picture" src="spotify-icon-png-15388.png" alt="Profile Picture">
+    <!-- User Display Name -->
+    <h2 id="display-name"></h2>
+    <!-- Profile Link -->
+    <a id="profile-link" target="_blank" href="#">View Profile on Spotify</a>
+  </section>
+
+  <!-- Top Songs Section -->
+  <section id="top-songs-section">
+    <h2>Top Songs</h2>
+    <!-- Dropdown to Choose Time Range -->
+    <select id="time-range-select">
+      <option value="long_term">Long Term</option>
+      <option value="medium_term">Medium Term</option>
+      <option value="short_term">Short Term</option>
+    </select>
+    <!-- Top Songs List -->
+    <ul id="top-songs-list"></ul>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>

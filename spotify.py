@@ -1,6 +1,7 @@
 import requests
 import webbrowser
 from urllib.parse import urlencode
+from IPython.display import Image
 import base64
 
 class Spotify:
@@ -50,8 +51,13 @@ class Spotify:
             
             name = json_result['display_name']
             link = json_result['external_urls']["spotify"]
+            profile_picture_url = json_result['images'][1]['url']
+            
+
             result["Name"] = name
             result["Profile"] = link
+            result["ProfilePicture"] = profile_picture_url
+            
 
             return result
         
@@ -63,7 +69,7 @@ class Spotify:
     def my_top_songs(self, term: str = "medium_term"):
         endpoint = "https://api.spotify.com/v1/me/top/tracks"
         time = f"?time_range={term}"
-        limit = f"&limit=5"
+        limit = f"&limit=20"
 
         header = self.auth
 
@@ -132,3 +138,5 @@ class Spotify:
             token = data['access_token']
             self.token = token
             self.auth = {"Authorization": "Bearer " + self.token}
+
+
