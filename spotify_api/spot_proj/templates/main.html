@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Top Songs</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+<body>
+  <header>
+    <h1>Spotify Top Songs</h1>
+    <!-- Spotify Logo -->
+    <img class="spotify-logo" src="{{ url_for('static', filename='spotify-icon-png-15388.png') }}" alt="Spotify Logo">
+  </header>
+
+  <!-- Profile Section -->
+  <section id="profile-section">
+    <!-- User Profile Picture -->
+    <img id="profile-picture" src="{{ profile_picture }}" alt="Profile Picture">
+    <!-- User Display Name -->
+    <h2 id="display-name">{{ display_name }}</h2>
+    <!-- Profile Link -->
+    <p>Welcome {{ display_name }}</p>
+  </section>
+
+<!-- Top Songs Section -->
+<section id="top-songs-section">
+  <h2>Top Songs</h2>
+  <!-- Dropdown to Choose Time Range -->
+  <select id="time-range-select">
+    <option value="long_term">Long Term</option>
+    <option value="medium_term">Medium Term</option>
+    <option value="short_term">Short Term</option>
+  </select>
+  <!-- Top Songs List -->
+  <ul id="top-songs-list"></ul>
+</section>
+
+  <script>
+    const timeRangeSelect = document.getElementById('time-range-select');
+    const topSongsList = document.getElementById('top-songs-list');
+    
+    // Function to update top songs based on selected time range
+    function updateTopSongs() {
+      const selectedTimeRange = timeRangeSelect.value;
+      fetch(`/get_top_songs/${selectedTimeRange}`)
+        .then(response => response.json())
+        .then(data => {
+          topSongsList.innerHTML = ''; // Clear the existing list
+          for (const song in data) {
+            const artist = data[song];
+            const listItem = document.createElement('li');
+            listItem.textContent = `${song} - ${artist}`;
+            topSongsList.appendChild(listItem);
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Add event listener for change event on select
+    timeRangeSelect.addEventListener('change', updateTopSongs);
+
+    // Initial update when page loads
+    updateTopSongs();
+  </script>
+</body>
+</html>
