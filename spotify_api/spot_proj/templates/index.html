@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Songs App</title>
+</head>
+<body>
+  <h1>Top Songs App</h1>
+  <img class="spotify-logo" src="{{ url_for('static', filename='spotify-icon-png-15388.png') }}" alt="Spotify Logo">
+
+  
+  <!-- Dropdown to Choose Time Range -->
+  <select id="time-range-select">
+    <option value="long_term">Long Term</option>
+    <option value="medium_term">Medium Term</option>
+    <option value="short_term">Short Term</option>
+  </select>
+  
+  <!-- Display Top Songs List -->
+  <ul id="top-songs-list"></ul>
+
+  <script>
+    const timeRangeSelect = document.getElementById('time-range-select');
+    const topSongsList = document.getElementById('top-songs-list');
+    
+    // Function to update top songs based on selected time range
+    function updateTopSongs() {
+      const selectedTimeRange = timeRangeSelect.value;
+      fetch(`/get_top_songs/${selectedTimeRange}`)
+        .then(response => response.json())
+        .then(data => {
+          topSongsList.innerHTML = ''; // Clear the existing list
+          for (const song in data) {
+            const artist = data[song];
+            const listItem = document.createElement('li');
+            listItem.textContent = `${song} - ${artist}`;
+            topSongsList.appendChild(listItem);
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    // Add event listener for change event on select
+    timeRangeSelect.addEventListener('change', updateTopSongs);
+
+    // Initial update when page loads
+    updateTopSongs();
+  </script>
+</body>
+</html>

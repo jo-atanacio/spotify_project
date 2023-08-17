@@ -1,0 +1,128 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2faf5;
+}
+
+
+
+header {
+  background-color: #1DB954;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.spotify-logo {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+#profile-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+#profile-picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+
+#display-name {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+#profile-link {
+  display: block;
+  margin-top: 1rem;
+  color: #1DB954;
+  text-decoration: none;
+}
+
+#top-songs-section {
+  text-align: center;
+  padding: 2rem;
+}
+
+#time-range-select {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#top-songs-list {
+  list-style: none;
+  padding: 0;
+}
+
+#top-songs-list li {
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #1DB954;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .spotify-logo {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+  }
+  
+  #profile-section {
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  #profile-picture {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+  
+  #display-name {
+    margin-top: 1rem;
+  }
+  
+  #profile-link {
+    display: block;
+    margin-top: 1rem;
+    color: #1DB954;
+  }
+  
+  #top-songs-section {
+    padding: 2rem;
+  }
+  
+  #time-range-select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  #top-songs-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #top-songs-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+  }
+   */
